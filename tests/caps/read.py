@@ -4,17 +4,19 @@ import cgi
 import cgitb
 import pyshark
 
-form = cgi.FieldStorage()
-flt = form.getvalue('flt')
-
 print "Content-type:text/html\r\n\r\n"
 
-cap = pyshark.FileCapture('./web.pcap', display_filter = flt, only_summaries = True)
-#cap = pyshark.FileCapture('./web.pcap', only_summaries=True)
+form = cgi.FieldStorage()
+flt = form.getvalue('flt')
+filename = form.getvalue('filename')
 
+cap = pyshark.FileCapture('./' + filename, display_filter = flt, only_summaries = True)
 
+outjson = []
 for pkt in cap:
-    print pkt._fields
+    outjson.append(pkt._fields)
+
+print outjson
 
 
 # high_layer_idx = len(pkt.layers) - 1
