@@ -18,7 +18,13 @@ for filename in os.listdir('./'):
         <form action="read.py" method="POST"> \
             Display Filter: <input type="text" name="flt" /> \
             <input type="hidden" name="filename" value="' + filename + '" /> \
-            <input type="submit" value="Submit" /> \
+            <input type="submit" value="Packets" /> \
+        </form></td>'
+        print '<td> \
+        <form action="summary.py" method="POST"> \
+            Display Filter: <input type="text" name="flt" /> \
+            <input type="hidden" name="filename" value="' + filename + '" /> \
+            <input type="submit" value="Summary" /> \
         </form></td>'
         print '</tr>'
 
