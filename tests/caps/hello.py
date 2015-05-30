@@ -21,15 +21,17 @@ for filename in os.listdir('./'):
             <input type="submit" value="Packets" /> \
         </form></td>'
         print '<td> \
-        <form action="summary.py" method="POST"> \
+        <form action="statistics.py" method="POST"> \
             Display Filter: <input type="text" style="width:100px; height:20px;" name="flt" /> \
             <input type="hidden" name="filename" value="' + filename + '" /> \
+            <input type="hidden" name="method" value="summary" /> \
             <input type="submit" value="Summary" /> \
         </form></td>'
         print '<td> \
-        <form action="conv.py" method="POST"> \
+        <form action="statistics.py" method="POST"> \
             Display Filter: <input type="text" style="width:100px; height:20px;" name="flt" /> \
             <input type="hidden" name="filename" value="' + filename + '" /> \
+            <input type="hidden" name="method" value="conv" /> \
             <input type="submit" value="Conv" /> \
         </form></td>'
         print '</tr>'
